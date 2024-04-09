@@ -32,6 +32,7 @@ requirements:
     - pyperclip
     - textual
     - show-in-file-manager
+    - gitpython
 test:
   source_files:
     - datashuttle/
