@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   entry_points:
-    - "datashuttle = datashuttle.command_line_interface:main"
+    - "datashuttle = datashuttle.tui_launcher:main"
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
@@ -47,6 +47,8 @@ test:
     - pip
     - pytest
     - pandas
+    - pytest-asyncio
+    - validators
 
 about:
   home: https://datashuttle.neuroinformatics.dev/
