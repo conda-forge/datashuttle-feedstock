@@ -1,5 +1,5 @@
 {% set name = "datashuttle" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 36a10d3fe6847f32edf24ff2c8bc6a313a67785630c965f783b6cfee2dd9b1a2
+  sha256: 7e2ec07b4670fa919c909534a00b4ec422d2f4d37dd3fc1a871ce7f0eab4eac7
 
 build:
   noarch: python
   entry_points:
-    - "datashuttle = datashuttle.command_line_interface:main"
+    - "datashuttle = datashuttle.tui_launcher:main"
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
@@ -32,6 +32,7 @@ requirements:
     - pyperclip
     - textual
     - show-in-file-manager
+    - gitpython
 test:
   source_files:
     - datashuttle/
@@ -46,6 +47,8 @@ test:
     - pip
     - pytest
     - pandas
+    - pytest-asyncio
+    - validators
 
 about:
   home: https://datashuttle.neuroinformatics.dev/
