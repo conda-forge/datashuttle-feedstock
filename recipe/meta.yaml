@@ -1,5 +1,5 @@
 {% set name = "datashuttle" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,26 +7,27 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d95badc5c3043d0ad15be41696ca1731d3908f8f3f13d426d61e2d708f321143
+  sha256: 8db35fa46d187a003a0ac65ae2441b71517e717fb90367be60a09c81dd867ab8
 
 build:
   noarch: python
   entry_points:
     - "datashuttle = datashuttle.tui_launcher:main"
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-build-isolation
   number: 0
 
 requirements:
   host:
     - python >=3.8.0
     - pip
+    - setuptools-scm
   run:
     - python >=3.8.0
     - paramiko
     - pyyaml
     - requests
     - rich
-    - fancylog
+    - fancylog >=0.4.2
     - simplejson
     - rclone
     - pyperclip
