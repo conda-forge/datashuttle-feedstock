@@ -26,7 +26,7 @@ requirements:
     - pyyaml
     - requests
     - rich
-    - fancylog
+    - fancylog >= 0.4.2
     - simplejson
     - rclone
     - pyperclip
