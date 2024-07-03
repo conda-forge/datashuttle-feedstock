@@ -13,7 +13,7 @@ build:
   noarch: python
   entry_points:
     - "datashuttle = datashuttle.tui_launcher:main"
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-build-isolation
   number: 0
 
 requirements:
