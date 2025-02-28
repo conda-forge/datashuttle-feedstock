@@ -1,5 +1,5 @@
 {% set name = "datashuttle" %}
-{% set version = "0.5.3" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 09a423d89f38760c2cecd47185c9625e55c23ebef31fbc25c26cab1fdaa247e9
+  sha256: d5f6ae5d06fadda3bd3e514071b84c1d82baa3eac4a6c30ca8e4836a0b4c974b
 
 build:
   noarch: python
   entry_points:
     - "datashuttle = datashuttle.tui_launcher:main"
   script: {{ PYTHON }} -m pip install . -vv --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
