@@ -32,9 +32,10 @@ requirements:
     - simplejson
     - rclone
     - pyperclip
-    - textual
+    - textual <=1.0.0
     - show-in-file-manager
     - gitpython
+    - typeguard
 test:
   source_files:
     - datashuttle/
@@ -48,6 +49,7 @@ test:
   requires:
     - pip
     - pytest
+    - pytest-mock
     - pandas
     - pytest-asyncio
     - validators
