@@ -1,5 +1,5 @@
 {% set name = "datashuttle" %}
-{% set version = "0.7.0" %}
+{% set version = "0.7.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 1d385dbe4ad74b00d9e25b05a1f3c455c62bcceb05aff16d79d5a56bc4445fdf
+  sha256: fbca788320eecc47c1a93069187091c56f70a280d55257f0a3744cde7ba67ff5
 
 build:
   noarch: python
@@ -18,7 +18,7 @@ build:
 
 requirements:
   host:
-    - python {{ python_min }} 
+    - python {{ python_min }}
     - pip
     - setuptools
     - setuptools-scm
