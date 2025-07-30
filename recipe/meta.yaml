@@ -36,6 +36,7 @@ requirements:
     - show-in-file-manager
     - gitpython
     - typeguard
+    - psutil
 test:
   source_files:
     - datashuttle/
