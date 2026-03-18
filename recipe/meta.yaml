@@ -46,7 +46,12 @@ test:
   commands:
     - pip list
     - pip check
+    # exclude transfer tests which require `pass` installed on the system
     - pytest ./tests
+      --ignore=tests/tests_integration/test_rclone_encryption.py
+      --ignore=tests/tests_transfers/ssh
+      --ignore=tests/tests_transfers/gdrive
+      --ignore=tests/tests_transfers/aws
   requires:
     - pip
     - pytest
