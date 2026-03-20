@@ -4,18 +4,18 @@
 package:
   name: {{ name|lower }}
   version: {{ version }}
-  
+
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 451831fda5fb728783285649e7fb548e805243c104e8f7880a5187582cb2aa80
-  
+
 build:
   noarch: python
   entry_points:
     - "datashuttle = datashuttle.tui_launcher:main"
   script: {{ PYTHON }} -m pip install . -vv --no-build-isolation
   number: 1
-  
+
 requirements:
   host:
     - python {{ python_min }}
