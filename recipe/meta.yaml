@@ -1,25 +1,29 @@
 {% set name = "datashuttle" %}
 {% set version = "0.8.0" %}
+
 package:
   name: {{ name|lower }}
   version: {{ version }}
+  
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 451831fda5fb728783285649e7fb548e805243c104e8f7880a5187582cb2aa80
+  
 build:
   noarch: python
   entry_points:
     - "datashuttle = datashuttle.tui_launcher:main"
   script: {{ PYTHON }} -m pip install . -vv --no-build-isolation
   number: 1
+  
 requirements:
   host:
-    - python >={{ python_min }}
+    - python {{ python_min }}
     - pip
     - setuptools
     - setuptools-scm
   run:
-    - python >={{ python_min }}
+    - python {{ python_min }}
     - paramiko
     - pyyaml
     - requests
@@ -42,7 +46,7 @@ test:
   commands:
     - pip list
     - pip check
-    # exclude transfer tests which require pass installed on the system
+    # exclude transfer tests which require `pass` installed on the system
     - pytest ./tests
       --ignore=tests/tests_integration/test_rclone_encryption.py
       --ignore=tests/tests_transfers/ssh
@@ -57,7 +61,7 @@ test:
     - validators
     - filelock       
     - python-dotenv   
-    - python >={{ python_min }}
+    - python {{ python_min }}
 about:
   home: https://datashuttle.neuroinformatics.dev/
   license: BSD-3-Clause
