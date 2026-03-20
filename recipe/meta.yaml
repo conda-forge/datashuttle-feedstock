@@ -10,25 +10,25 @@ source:
   sha256: 451831fda5fb728783285649e7fb548e805243c104e8f7880a5187582cb2aa80
 
 build:
+  noarch: python
   entry_points:
     - "datashuttle = datashuttle.tui_launcher:main"
   script: {{ PYTHON }} -m pip install . -vv --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
     - setuptools
     - setuptools-scm
   run:
-    - python
+    - python >={{ python_min }}
     - paramiko
     - pyyaml
     - requests
     - rich
-    - fancylog >=0.7.0  # [py>=311]
-    - fancylog >=0.4.2,<0.5.0  # [py<311]
+    - fancylog >=0.4.2,!=0.5.*,!=0.6.*
     - simplejson
     - rclone
     - pyperclip
@@ -61,15 +61,13 @@ test:
     - validators
     - filelock       
     - python-dotenv   
-    - python
-
+    - python {{ python_min }}
 about:
   home: https://datashuttle.neuroinformatics.dev/
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
   summary: "A project folder manager for systems neuroscience."
-
 extra:
   recipe-maintainers:
     - JoeZiminski
