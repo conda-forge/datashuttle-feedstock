@@ -32,7 +32,7 @@ requirements:
     - simplejson
     - rclone
     - pyperclip
-    - textual >=3.4.0,<8
+    - textual >=3.4.0
     - show-in-file-manager
     - gitpython
     - typeguard
@@ -51,6 +51,7 @@ test:
   requires:
     - pip
     - pytest
+    - pytest-cov
     - pytest-mock
     - pandas
     - pytest-asyncio
