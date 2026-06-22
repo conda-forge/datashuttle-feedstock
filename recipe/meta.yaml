@@ -1,5 +1,5 @@
 {% set name = "datashuttle" %}
-{% set version = "0.9.0" %}
+{% set version = "0.9.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 62eaffdbcc1905095d1f814a74a9e23f14f07b0a52251eaa4682d832db56659b
+  sha256: 095f1cf70152b55dddf569aa71a9dd1c84a12bd9c385920a8132ffce4eb6653b
 
 build:
   noarch: python
